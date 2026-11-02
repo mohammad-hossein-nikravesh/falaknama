@@ -7,6 +7,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
+  // GitHub Pages serves the site under /<repo>/; the workflow sets VITE_BASE for it.
+  base: process.env.VITE_BASE ?? '/',
   plugins: [vue(), vueDevTools(), tailwindcss()],
   resolve: {
     alias: {

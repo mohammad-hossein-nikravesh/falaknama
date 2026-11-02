@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import { onUnauthorized, token } from '@/lib/api';
 
 export const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   scrollBehavior: (to, _from, saved) =>
     saved ?? (to.hash ? { el: to.hash, behavior: 'smooth' } : { top: 0 }),
   routes: [
