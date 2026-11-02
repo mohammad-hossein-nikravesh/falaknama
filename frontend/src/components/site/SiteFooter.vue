@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
 import { Mail, MessageCircle, Send } from '@lucide/vue';
+import { isDemo } from '@/lib/content';
 import { jalaliYear, site } from '@/lib/site';
 import BrandMark from './BrandMark.vue';
 
@@ -83,6 +84,7 @@ const links = [
       class="border-t border-[#24143d]/10 py-5 text-center text-xs text-[#4a3a5e]"
     >
       © {{ jalaliYear() }} فلک‌نما · همهٔ حقوق محفوظ است
+      <span v-if="isDemo"> · نسخهٔ پیش‌نمایش با محتوای نمونه</span>
     </div>
   </footer>
 </template>

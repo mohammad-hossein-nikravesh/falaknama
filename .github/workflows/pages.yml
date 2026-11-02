@@ -1,5 +1,5 @@
-# Publishes the frontend to GitHub Pages as a static preview (no backend: news,
-# articles and FAQs stay empty). Enable once: Settings > Pages > Source: GitHub Actions.
+# Publishes the frontend to GitHub Pages as a static preview with sample content
+# (no backend: the admin panel does not work). Enable once: Settings > Pages > Source: GitHub Actions.
 name: Deploy preview to GitHub Pages
 
 on:
@@ -34,6 +34,7 @@ jobs:
           cp dist/index.html dist/404.html
         env:
           VITE_BASE: /${{ github.event.repository.name }}/
+          VITE_DEMO: '1' # sample content from src/lib/demo-content.json instead of the API
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
